@@ -52,7 +52,7 @@ key                     [Status: 200, Size: 1766, Words: 9, Lines: 31]
 ```
 &nbsp;
 ##### Here's the image
-![[20210404084128.png]]
+![private key](20210404084128.png)
 &nbsp;
  Copy the key to file and crack it using john found the password being *7¡Vamos!*
 
@@ -97,7 +97,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ```
 &nbsp;
 This is how */reg.php* looks like
-![[20210404094429.png]]
+![reg.php](20210404094429.png)
 &nbsp;
 Upon inspecting the source, found PHP code.
 ```php
@@ -160,10 +160,10 @@ Let's analyze the source code!!!
 &nbsp;
 This is the input i constructed *!!,!,!,####,!,@@@@,!,\*\*\*,???*
 and the password is *cimihan_are_you_here?*
-![[20210404095503.png]]
+![payload](20210404095503.png)
 &nbsp;
 Gobuster also found a 403.php which i bypassed it with *'..;'*. Upon bypassing it, it reveals another user called *'imsau'*
-![[20210404102407.png]]
+![password](20210404102407.png)
 &nbsp;
 Log in via ssh with username imsau and password we obtained
 ```bash
