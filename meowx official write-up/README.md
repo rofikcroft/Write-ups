@@ -24,7 +24,7 @@ Things to note about nmap port scan result:
 Let's do the enumeration on web server!!
 Doing *directory bruteforcing* on web server found these files as shown below:
 &nbsp;
-![[gobust 1.jpg]]
+![gobuster result](gobust-1.jpg)
 &nbsp;
 Browsing to `administrator.php` via web browser we get redirected to `admin.php`. This part is easy to look over as it is a redirection. But if we visit `administrator.php` using Burpsuite or curl, it is hinting us about something crucial as shown below:
 ```bash
