@@ -47,11 +47,11 @@ curl http://10.10.207.110/administrator.php
 ```
 with that, we have the information of `nick` as a *ftp* user and *has a weak password*. With that, we bruteforce `nick` ftp password with *hydra*
 &nbsp;
-![[ftp-brute 1.jpg]]
+![bruteforce ftp password](ftp-brute-1.jpg)
 &nbsp;
 Now we have the *ftp* credentials. Let's log in and see what *ftp* provides for us.
 &nbsp;
-![[ftp-get 1.jpg]]
+![ftp access](ftp-get-1.jpg)
 &nbsp;
 There are some files in *ftp* , i downloaded `web-backup-src.zip` and `my-todo.txt`. Reading `my-todo.txt` and we get the following result:
 ```txt
@@ -75,7 +75,7 @@ Things to note from `my-todo.txt`:
 - the base64 encoded string could hint us something crucial so let's decode it.
 - decode the base64 string we get the result: `the creds used to log in to mysql is jose:bc64e5a5e4cd495042d298c116ca4c7e` but password seems to be in a hash format so let's crack it on [crackstation](https://crackstation.net/) (or you can crack it using your favorite tool eg. *JohnTheRipper, Hashcat*)
 &nbsp;
-![[mysql-pwd 1.jpg]]
+![crack mysql password](mysql-pwd-1.jpg)
 
 Another file we have is `web-backup-src.zip` but it is password protected so we have to crack the password to view contents of the file. I do it using `fcrackzip`
 ```bash
@@ -101,7 +101,7 @@ if($username === "<REDACTED>" && md5($password) === "<REDACTED>")
 ```
 Let's browse to `admin.php` and log in to the website. If we log in successfully we will be redirected to `dashboard.php`:
 &nbsp;
-![[dashboard 1.jpg]]
+![dashboard page](dashboard-1.jpg)
 &nbsp;
 Now we can browse to `upload.php` to upload the file. Let's try to upload our *reverse shell* to the server. My *reverse shell* script looks fairly simple like this:
 ```php
@@ -112,15 +112,15 @@ Now we can browse to `upload.php` to upload the file. Let's try to upload our *r
 ```
 Let's try to upload it:
 &nbsp;
-![[up-fail 1.jpg]]
+![upload fail](up-fail-1.jpg)
 &nbsp;
 The web server won't allow us to upload our *reverse shell* script because it does not allow `.php` extension. Let's try to upload a file with double extension `.jpg.php` to see if it works:
 &nbsp;
-![[up-fail 2.jpg]]
+![upload fail](up-fail-2.jpg)
 &nbsp;
 As we can see it still won't allow us to upload our script. Let's give it another try and upload with `.php.jpg` extension:
 &nbsp;
-![[up-succ 1.jpg]]
+![upload success](up-succ-1.jpg)
 &nbsp;
 As we can see, our *reverse shell* script is successfully uploaded to the server and is in `/uploads` directory. Let's browse to the file and get our *reverse shell* so we can control the server remotely. But first lets set up our *netcat listener* at port *9001* with 
 ```bash
@@ -128,12 +128,12 @@ nc -lvnp 9001
 ```
 Now we have a shell on the server:
 &nbsp;
-![[revshell 1.jpg]]
+![reverse shell](revshell-1.jpg)
 > Additional tip: spawn an interactive shell with python as it helps working with the shell much easier.
 
 Remember about the `my-todo.txt`, we have *mysql* running locally and we also have credentials to access *mysql* so let's access *mysql* and see what it provides us: *mysql* has a database *user* and a table called *creds*. We can view record od *creds* table:
 &nbsp;
-![[mysql-access 1.jpg]]
+![access mysql db](mysql-access-1.jpg)
 &nbsp;
 It seems that *creds* table contain a record of a user called `alejandro` along with his *password hash*. Let's copy the *hash* and attempt to crack it. For this i use *JohnTheRipper* to do so and get a result as the following:
 ```bash
@@ -216,7 +216,7 @@ chmod +x whoami
 ```
 After a while we get a *reverse shell* connection back to our machine and we are *root* user on the machine
 &nbsp;
-![[root 1.jpg]]
+![](root-1.jpg)
 &nbsp;
 Now that we are *root*, we can read the `root.txt` file located at `/root` and get the flag then submit to complete the room.
 &nbsp;
