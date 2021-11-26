@@ -131,7 +131,7 @@ Now we have a shell on the server:
 ![reverse shell](revshell-1.jpg)
 > Additional tip: spawn an interactive shell with python as it helps working with the shell much easier.
 
-Remember about the `my-todo.txt`, we have *mysql* running locally and we also have credentials to access *mysql* so let's access *mysql* and see what it provides us: *mysql* has a database *user* and a table called *creds*. We can view record od *creds* table:
+Remember about the `my-todo.txt`, we have *mysql* running locally and we also have credentials to access *mysql* so let's access *mysql* and see what it provides us: *mysql* has a database *user* and a table called *creds*. We can view record of *creds* table:
 &nbsp;
 ![access mysql db](mysql-access-1.jpg)
 &nbsp;
