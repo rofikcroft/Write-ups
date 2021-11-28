@@ -150,11 +150,12 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
-Now we have `alejandro` and his password, let's change to his user to attempt to do *privilege escalation*. After change our user to `alejandro` we can read the `user.txt` and attempt to get the flag from it. Here's how to get the flag from `user.txt`
+Now we have `alejandro` and his password, let's change to his user to attempt to do *privilege escalation*. After change our user to `alejandro` we can read the `user.txt` and attempt to get the flag from it. Here's how to get the flag from `user.txt`:
 ```bash
 cat user.txt | xxd -r -p | base64
 <REDACTED>
 ```
+Copy the flag and submit it as specified format.
 Now let's escalate our privilege to be *root*. When we list the content inside `/home/alejandro` we get this following result:
 ```bash
 drwxr-xr-x 4 alejandro alejandro 4096 พ.ย.  23 20:32 ./
@@ -222,7 +223,12 @@ After a while we get a *reverse shell* connection back to our machine and we are
 &nbsp;
 ![](root-1.jpg)
 &nbsp;
-Now that we are *root*, we can read the `root.txt` file located at `/root` and get the flag then submit to complete the room.
+Now that we are *root*, we can read the `root.txt` file located at `/root` and get the flag then submit to complete the room. To get the flag from `root.txt`:
+> 1. Decode the file from base64
+> 2. Subtitute `True` to be `1` and `False` to be `0`
+> 3. In Cyberchef, select `From Binary` and `From Hex`
+
+Now that we have the flag copy it and submit it.
 &nbsp;
 So guys that's it for this room. I hope this write-up helps you as much as it's meant to. Thank you for completing the room. I hope you can learn something from this room. Any question, complaint, compliment you can reach me at [@CroftRofik](https://twitter.com/CroftRofik) or `lara.crofwick@gmail.com`.
 
