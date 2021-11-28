@@ -150,7 +150,11 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
-Now we have `alejandro` and his password, let's change to his user to attempt to do *privilege escalation*. After change our user to `alejandro` we can read the `user.txt` and attempt to get the flag from it.
+Now we have `alejandro` and his password, let's change to his user to attempt to do *privilege escalation*. After change our user to `alejandro` we can read the `user.txt` and attempt to get the flag from it. Here's how to get the flag from `user.txt`
+```bash
+cat user.txt | xxd -r -p | base64
+<REDACTED>
+```
 Now let's escalate our privilege to be *root*. When we list the content inside `/home/alejandro` we get this following result:
 ```bash
 drwxr-xr-x 4 alejandro alejandro 4096 พ.ย.  23 20:32 ./
