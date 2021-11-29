@@ -1,6 +1,6 @@
 # Official Write-up for TryHackMe's meowx
 ---
-This is an official write up of TryHackMe's meowx from the creator of this room. Any question related to the room feel free to reach me out at [@CroftRofik](https://twitter.com/CroftRofik) or `lara.crofwick@gmail.com`.
+This is an official write up of TryHackMe's meowx from the creator of this room. Any question related to the room feel free to reach me out at [@rofrahmanie](https://twitter.com/rofrahmanie) or `lara.crofwick@gmail.com`.
 #### Let's get started
 Given the IP ADDRESS, doing nmap port scan, found 3 ports are open as shown below:
 ```bash
@@ -230,6 +230,6 @@ Now that we are *root*, we can read the `root.txt` file located at `/root` and g
 
 Now that we have the flag copy it and submit it.
 &nbsp;
-So guys that's it for this room. I hope this write-up helps you as much as it's meant to. Thank you for completing the room. I hope you can learn something from this room. Any question, complaint, compliment you can reach me at [@CroftRofik](https://twitter.com/CroftRofik) or `lara.crofwick@gmail.com`.
+So guys that's it for this room. I hope this write-up helps you as much as it's meant to. Thank you for completing the room. I hope you can learn something from this room. Any question, complaint, compliment you can reach me at [@rofrahmanie](https://twitter.com/rofrahmanie) or `lara.crofwick@gmail.com`.
 
 
